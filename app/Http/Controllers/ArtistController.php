@@ -37,9 +37,13 @@ class ArtistController extends Controller
      */
     public function store(Request $request)
     {
+        $photoName = time().'.'.$request->photo->extension();
+
+        $request->photo->move(public_path('images'), $photoName);
+
         Artist::create([
             'name' => $request->name,
-            'photo' => $request->photo,
+            'photo' => $photoName,
             'bio' => $request->bio,
         ]);
 

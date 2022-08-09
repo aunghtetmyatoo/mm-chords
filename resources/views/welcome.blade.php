@@ -1,1 +1,3 @@
-<x-layout></x-layout>
+<x-layout>
+    <div class="bg"></div>
+</x-layout>

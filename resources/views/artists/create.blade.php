@@ -13,7 +13,7 @@
                 <div class="row mb-3">
                   <label for="photo" class="col-sm-2 col-form-label">Photo</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="photo" id="photo">
+                    <input type="file" class="form-control" name="photo" id="photo">
                   </div>
                 </div>
                 <div class="row mb-3">

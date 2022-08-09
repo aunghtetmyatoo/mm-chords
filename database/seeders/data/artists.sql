@@ -1,0 +1,10 @@
+INSERT INTO `artists` (`id`, `name`, `photo`, `bio`, `created_at`, `updated_at`) VALUES (1, 'ထူးအိမ်သင်', 'htoo_eain_thin.jpg', 'bio', '2021-08-17 15:33:04', '2021-08-17 15:33:04');
+INSERT INTO `artists` (`id`, `name`, `photo`, `bio`, `created_at`, `updated_at`) VALUES (2, 'လေးဖြူ', 'lay_phyu.jpg ', 'bio', '2021-08-17 15:33:04', '2021-08-17 15:33:04');
+INSERT INTO `artists` (`id`, `name`, `photo`, `bio`, `created_at`, `updated_at`) VALUES (3, 'အငဲ', 'a_nge.jpg', 'bio', '2021-08-17 15:33:04', '2021-08-17 15:33:04');
+INSERT INTO `artists` (`id`, `name`, `photo`, `bio`, `created_at`, `updated_at`) VALUES (4, '၀ိုင်၀ိုင်း', 'y_wine.jpeg', 'bio', '2021-08-17 15:33:04', '2021-08-17 15:33:04');
+INSERT INTO `artists` (`id`, `name`, `photo`, `bio`, `created_at`, `updated_at`) VALUES (5, 'မျိုးကြီး', 'myo_gyi.jpg', 'bio', '2021-08-17 15:33:04', '2021-08-17 15:33:04');
+INSERT INTO `artists` (`id`, `name`, `photo`, `bio`, `created_at`, `updated_at`) VALUES (6, 'အာဇာနည်', 'r_zarni.jpg', 'bio', '2021-08-17 15:33:04', '2021-08-17 15:33:04');
+INSERT INTO `artists` (`id`, `name`, `photo`, `bio`, `created_at`, `updated_at`) VALUES (7, 'ဇော်ပိုင်', 'zaw_paing.jpeg', 'bio', '2021-08-17 15:33:04', '2021-08-17 15:33:04');
+INSERT INTO `artists` (`id`, `name`, `photo`, `bio`, `created_at`, `updated_at`) VALUES (8, 'စိုင်းထီးဆိုင်', 'sai_htee_saing.jpg', 'bio', '2021-08-17 15:33:04', '2021-08-17 15:33:04');
+INSERT INTO `artists` (`id`, `name`, `photo`, `bio`, `created_at`, `updated_at`) VALUES (9, 'ကျားပေါက်', 'kyar_pauk.png', 'bio', '2021-08-17 15:33:04', '2021-08-17 15:33:04');
+INSERT INTO `artists` (`id`, `name`, `photo`, `bio`, `created_at`, `updated_at`) VALUES (10, 'ရေမွန်', 'raymond.jpg', 'bio', '2021-08-17 15:33:04', '2021-08-17 15:33:04');
