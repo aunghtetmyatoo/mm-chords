@@ -15,9 +15,9 @@ class SongChordController extends Controller
      */
     public function index()
     {
-        $songChords = SongChord::all();
+        $song_chords = SongChord::all();
 
-        return view('song_chords.index', compact('songChords'));
+        return view('song_chords.index', compact('song_chords'));
     }
 
     /**
@@ -57,9 +57,9 @@ class SongChordController extends Controller
      */
     public function show(Request $request)
     {
-        $songChord = SongChord::findOrFail($request->id);
+        $song_chord = SongChord::findOrFail($request->id);
 
-        return view('song_chords.show', compact('songChord'));
+        return view('song_chords.show', compact('song_chord'));
     }
 
     /**
@@ -82,9 +82,9 @@ class SongChordController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $songChord = SongChord::findOrFail($request->id);
+        $song_chord = SongChord::findOrFail($request->id);
 
-        $songChord->update([
+        $song_chord->update([
             'artist_id' => $request->artist_id,
             'song_name' => $request->song_name,
             'lyrics_and_chords' => $request->lyrics_and_chords,
@@ -101,9 +101,9 @@ class SongChordController extends Controller
      */
     public function destroy($id)
     {
-        $songChord = SongChord::findOrFail($id);
+        $song_chord = SongChord::findOrFail($id);
 
-        $songChord->destroy();
+        $song_chord->destroy();
 
         return back();
     }
