@@ -69,9 +69,11 @@ class ArtistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        return view('artists.edit');
+        $artist = Artist::findOrFail($request->id);
+
+        return view('artists.edit', compact('artist'));
     }
 
     /**

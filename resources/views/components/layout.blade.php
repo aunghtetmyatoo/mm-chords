@@ -6,172 +6,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title ?? 'MMChords' }}</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-    <style>
-        body {
-            height: 100vh;
-            background: linear-gradient(-45deg, #b82e1f, #28313b, #434343, #2c3e50);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-            font-family: 'Courier New', Courier, monospace;
-            /* background-image: url('images/bg1.jpg');
-            background-size: cover; */
-            /* backdrop-filter: blur(2px); */
-        }
-
-        main {
-            background: linear-gradient(-45deg, #b82e1f, #28313b, #434343, #2c3e50);
-
-        }
-
-        .swiper {
-            width: 100%;
-            height: 100%;
-        }
-
-        .img-card {
-            text-align: center;
-        }
-
-        .img-card img {
-            border-radius: 0.95rem !important;
-        }
-
-        .artist-name {
-            margin-top: 0.5rem;
-            color: #fff;
-        }
-
-        .search-box {
-            margin-top: 5rem;
-            position: fixed;
-            /* top: 50%; */
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #252525;
-            height: 60px;
-            border-radius: 40px;
-            padding: 10px;
-
-        }
-
-        .search-box:hover>.search-txt {
-            width: 240px;
-            padding: 0 6px;
-        }
-
-        .search-box:hover>.search-btn {
-            background: whitesmoke;
-        }
-
-        .search-btn {
-            color: salmon;
-            float: right;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            text-decoration: none;
-            background: #252525;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-        }
-
-        .search-txt {
-            border: none;
-            background: none;
-            outline: none;
-            float: left;
-            padding: 0;
-            color: whitesmoke;
-            font-size: 16px;
-            transition: 0.4s;
-            line-height: 40px;
-            width: 0px;
-        }
-
-        .artist {
-            margin-top: 10rem;
-        }
-
-
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-    </style>
 </head>
 
 <body>
-    <div class="curve d-flex align-items-center justify-content-evenly">
-        <div onclick="playAudio()" type="button"><img src="{{ URL::asset('images/left.png') }}" alt="" width="300"></div>
-        <a href="{{ route('artist.index') }}">
-            <button class="nav-btn striped-shadow blue"><span>Artists</span></button>
-        </a>
-        <a href="/" class="logo" onclick="playAudio()"><img src="{{ URL::asset('images/logo.png') }}"
-                alt=""></a>
-        <a href="{{ route('song_chord.index') }}">
-            <button class="nav-btn striped-shadow dark"><span>Chords</span></button>
-        </a>
-        <div onclick="playAudio()" type="button"><img src="{{ URL::asset('images/right.png') }}" alt="" width="300"></div>
-    </div>
-
-
-    {{-- <button onclick="playAudio()" type="button">Play Audio</button> --}}
-    <audio controls hidden id="myAudio">
-        <source src="{{ URL::asset('songs/logo.mp3') }}" type="audio/mpeg">
+    <audio controls hidden id="guitar1">
+        <source src="{{ URL::asset('songs/guitar1.mp3') }}" type="audio/mpeg">
     </audio>
-    <div class="bb">
 
+    <audio controls hidden id="guitar2">
+        <source src="{{ URL::asset('songs/guitar2.mp3') }}" type="audio/mpeg">
+    </audio>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img src="{{ URL::asset('images/logo.svg') }}" alt="Logo"
+                    width="100"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item mr-2">
+                        <a class="nav-link" href="{{ route('artist.index') }}">Artists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('song_chord.index') }}">Song's Chords</a>
+                    </li>
+                </ul>
+                <form class="d-flex artist-search" action="#">
+                    @csrf
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search By Artist (Type MM)"
+                            aria-label="Search By Artist" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i
+                                class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                </form>
+                <form class="d-flex song-search" action="#">
+                    @csrf
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search By Song's Name (Type MM)"
+                            aria-label="Search By Song's Name" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i
+                                class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    {{ $slot }}
+
+    <div class="footer">
+        <div class="d-flex justify-content-center align-item-center">
+            <span>©Copyright 2022, mmchords.com <b>All Rights Reserved.</b></span>
+        </div>
     </div>
 
-
-        {{ $slot }}
-    {{-- {{ $scripts ?? '' }} --}}
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script type="text/javascript">
-        var x = document.getElementById("myAudio");
+        var x = document.getElementById("guitar1");
+        var y = document.getElementById("guitar2");
 
-        function playAudio() {
+        function playGuitar1() {
             x.play();
         }
 
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 6,
-            spaceBetween: 30,
+        function playGuitar2() {
+            y.play();
+        }
+
+        // var swiper = new Swiper(".mySwiper", {
+        //     slidesPerView: 6,
+        //     spaceBetween: 30,
+        //     autoplay: {
+        //         delay: 5500,
+        //         disableOnInteraction: false,
+        //     },
+        //     loop: false,
+        //     loopFillGroupWithBlank: true,
+        //     navigation: {
+        //         nextEl: ".swiper-button-next",
+        //         prevEl: ".swiper-button-prev",
+        //     },
+        // });
+
+        var swiper = new Swiper('.mySwiper', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 20,
+                stretch: 0,
+                depth: 200,
+                modifier: 1,
+                slideShadows: true,
+            },
+            loop: true,
             autoplay: {
                 delay: 5500,
                 disableOnInteraction: false,
             },
-            loop: false,
-            loopFillGroupWithBlank: true,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
             },
         });
     </script>

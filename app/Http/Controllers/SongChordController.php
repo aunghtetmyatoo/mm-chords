@@ -68,9 +68,11 @@ class SongChordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        return view('song_chords.edit');
+        $song_chord = SongChord::findOrFail($request->id);
+
+        return view('song_chords.edit', compact('song_chord'));
     }
 
     /**
@@ -99,12 +101,13 @@ class SongChordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $song_chord = SongChord::findOrFail($id);
+        $song_chord = SongChord::findOrFail($request->id);
+        // dd($song_chord);
 
-        $song_chord->destroy();
+        $song_chord->delete();
 
-        return back();
+        return redirect('/song_chord');
     }
 }
