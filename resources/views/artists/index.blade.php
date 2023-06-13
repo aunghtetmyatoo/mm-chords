@@ -13,6 +13,7 @@
             <img src="{{ URL::asset('images/rock.png') }}" alt="" width="300">
         </div> --}}
 
+
         <div class="swiper mySwiper align-self-center">
             <div class="swiper-wrapper">
                 @foreach ($artists as $artist)
